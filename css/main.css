@@ -1,0 +1,12 @@
+:root {
+    --blue: #58bfe9;
+    --green: #55cd6c;
+    --grey: #c4c4c4;
+    --light-red: #ff4a4a;
+    --black: #000000;
+    --white: #FFFFFF;
+  }
+
+.testing{
+    color: var(--light-red);
+}
