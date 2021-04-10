@@ -1,34 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+  </style>
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+  <![endif]-->
 </head>
+
 <body>
-    <!-- start Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Contáctanos <span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
+  <!-- Start Navbar -->
+  <section class="custom-navbar">
+    <div class="container">
+      <div class="custom-navbar-wrapper">
+        <a class="custom-logo" href="#"><img src="img/logoy.svg" alt="logo"></a>
+        <a class="custom-link" href="https://wa.me/1119890148" target="_blank"><img src="img/whatsappLogo.svg" class="whatsapplogo" style="width:40px;height:40px" alt="">Contáctanos <span class="sr-only">(current)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- End Navbar -->
+
+  <!-- Start Header -->
+  <section class="header">
+    <div class="container d-flex justify-content-end">
+      <div id="headerCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#headerCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#headerCarousel" data-slide-to="1"></li>
+          <li data-target="#headerCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <h2>
+              Viajes Egipto
+            </h2>
+            <p>
+              es apoyada por los mejores Hoteles, Cruceros y Transportes. Arreglaremos viajes personalizados y tours por
+              día según tus intereses y preguntas ¡Te sorprenderás!
+            </p>
+          </div>
+          <div class="carousel-item">
+            <h2>
+              Viajes Egipto
+            </h2>
+            <p>
+              es apoyada por los mejores Hoteles, Cruceros y Transportes. Arreglaremos viajes personalizados y tours por
+              día según tus intereses y preguntas ¡Te sorprenderás!
+            </p>
+          </div>
+          <div class="carousel-item">
+            <h2>
+              Viajes Egipto
+            </h2>
+            <p>
+              es apoyada por los mejores Hoteles, Cruceros y Transportes. Arreglaremos viajes personalizados y tours por
+              día según tus intereses y preguntas ¡Te sorprenderás!
+            </p>
+          </div>
         </div>
-      </nav>
-    <!-- End Navbar -->
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+
+  <!-- Start form section -->
+  <section class="form-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-description">
+            <h2 class="form-title">Nuevas ofertas y Mejor precios</h2>
+            <h2>¡Te inspiramos a viajar a Egipto!</h2>
+            <p class="note">
+              Egipto es el destino ideal para mezclar entre la cultura y la diversión. Te ofrecemos los paquetes más
+              vendidos al mejor precio por sus ciudades impresionantes como (El Cairo, Aswan, Luxor, Alejandría, y otros
+              más) de tipo privado o en grupo, con visitas guiadas en español a las atracciones más famosas como (Las
+              Pirámides, la Ciudadela, Mezquitas y Templos).
+              <br>
+              <br>
+              <br>
+              Aprovecha la oportunidad de pasar días que nunca los olvidarías. También puedes combinar tu viaje con otro
+              país del Medio Oriente
+            </p>
+            <p class="tip">
+              ¡Envíanos tu solicitud para planificar tu viaje soñado
+              y prepárate para disfrutar al máximo de tus vacaciones!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-content">
+            <form method="get" id="myForm">
+              <h2>Rellena el Formulario</h2>
+              <p>Te ayudamos a organizar tu viaje inolvidable <br>
+                en Egipto a tu medida</p>
+              <div class="form-item">
+                <input type="text" name="username" id="username" placeholder="Nombre" />
+              </div>
+              <div class="form-item">
+                <input type="email" name="email" id="email" placeholder="Correo electrónico" />
+              </div>
+              <div class="form-item">
+                <input type="number" name="phone" id="phone" placeholder="Teléfono" />
+              </div>
+              <div class="form-item">
+                <input type="text" name="nationality" id="nationality" placeholder="Nacionalidad" />
+              </div>
+              <div class="input-group date form-item" id="sandbox-container">
+                <input type="text" class="form-control" name="start" placeholder="Fecha de llegada">
+                <span>
+                  <img src="img/8.svg" alt="">
+                </span>
+              </div>
+              <div class="input-group date form-item" id="sandbox-container">
+                <input type="text" class="form-control" name="end" placeholder="Fecha de salida">
+                <span>
+                  <img src="img/8.svg" alt="">
+                </span>
+              </div>
+              <div class="form-item form-counter">
+                <div class="adults">
+                  <span class="title">Adultos</span>
+                  <span id="adultsMinus"> - </span>
+                  <span id="adultsValue"> 0 </span>
+                  <span id="adultsPlus"> + </span>
+                </div>
+                <div class="adults">
+                  <span class="title">Niños</span>
+                  <span id="kidsMinus"> - </span>
+                  <span id="kidsValue"> 0 </span>
+                  <span id="kidsPlus"> + </span>
+                </div>
+              </div>
+
+              <div class="form-item">
+                <textarea name="message" id="message" cols="30" rows="5"
+                  placeholder="Comentario (Escríbenos si quieres algo especial)"></textarea>
+              </div>
+              <div class="form-submit">
+                <input type="submit" value="¡Planea Tu Viaje!" />
+              </div>
+              <h6>recibirá una llamada o correo electrónico dentro de las 24 horas</h6>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End form section -->
+
+  <!-- Start features section -->
+  <section class="features">
+    <div class="container">
+      <h2>Por qué Nosotros?</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="feature">
+            <h3 class="feature-title">
+              <img src="img/5.svg" alt="first-feature">
+              <span>Hablamos<br> tu lengua</span>
+            </h3>
+            <p>
+              Todos los tours con guía en español
+              Y la reserva con agentes especializados
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="feature">
+            <h3 class="feature-title">
+              <img src="img/6.svg" alt="second-feature">
+              <span>Seguridad</span>
+            </h3>
+            <p>
+              Tu salud es nuestra primera prioridad, Precauciones de salud
+              garantizadas
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="feature">
+            <h3 class="feature-title">
+              <img src="img/7.svg" alt="third-feature">
+              <span>Mejor Servicio</span>
+            </h3>
+            <p>
+              Mejor atención al cliente 24/7 en línea, con seguimiento con nuestro equipo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End features section -->
+  <!-- Start Recommendations section -->
+  <section class="recommendations">
+    <div class="container">
+      <h2>More Recommendations</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="place">
+            <div class="place-img first"></div>
+            <h4>La Calle del Moez</h4>
+            <p>Este paseo te ayuda a ver la vida real de los Egipcios Locales y a descubrir su estilo de vida con tu
+              guía profesional que te asegurará que le lleve a los lugares más interesantes de Egipto.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="place">
+            <div class="place-img second"></div>
+            <h4>Montar en Camello</h4>
+            <p>Pasea en camello en la zona de las pirámides de Giza es una de las mejores cosas que hacer. Puedes probar un Carruaje de caballo disfrutando de la sensación de la vida antigua.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="place">
+            <div class="place-img third"></div>
+            <h4>Especátuclo de Luz y Sonido </h4>
+            <p>es uno de los mejores tours nocturnos en El Cairo que te permite explorar la historia de Egipto y sus maravillosas Pirámides. El Espectáculo Empieza de 7 pm a 8 pm.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Recommendations section -->
+
+  <!-- Start Copyright -->
+  <section class="copyright">
+    <p>Copyright @2020.Viajes Egipto</p>
+  </section>
+  <!-- End Copyright -->
 
 
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
