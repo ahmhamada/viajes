@@ -272,6 +272,10 @@ input[type=number] {
   padding: 12px;
   outline: 0;
   color: #56bee3;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .form-counter .adults #adultsValue,
@@ -346,7 +350,7 @@ input[type=number] {
     align-items: baseline;
   }
   .form-counter .adults{
-    width: 60%;
+    /* width: 60%; */
     margin: 5px 0;
   }
   .form-submit input{
