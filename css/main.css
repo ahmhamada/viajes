@@ -237,6 +237,12 @@ input[type=number] {
 .form-wrapper .form-content .form-item input::-moz-placeholder {
   font-size: 14px;
 }
+.form-wrapper .form-content .form-item .custom-alert{
+  padding: 5px 10px;
+  text-align: left;
+  width: 100%;
+  display: none;
+}
 
 #sandbox-container span{
   color: #c4c4c4;
@@ -246,6 +252,7 @@ input[type=number] {
   z-index: 999;
   cursor: pointer;
 }
+
 #sandbox-container input{
   padding: 24px 12px;
 }

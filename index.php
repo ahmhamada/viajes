@@ -1,3 +1,32 @@
+<?php 
+
+  //check if user coming from a request
+  if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $user = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $phone =  filter_var($_POST['phone'], FILTER_SANITIZE_NUMBER_INT);
+    $nationality = filter_var($_POST['nationality'], FILTER_SANITIZE_STRING);
+    $startDuration = $_POST['start'];
+    $endDuration = $_POST['end'];
+    $message = $_POST['message'];
+
+    $formErrors = array();
+
+    $headers = 'Form: ' . $email . '\r\n';
+    $myEmail = 'ahmedhamada_fci@yahoo.com';
+    $subject = 'Contact Form';
+
+    if(empty($formErrors)) {
+      mail($myEmail,$subject,$msg,$headers)
+    }
+
+
+  }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,33 +132,51 @@
         </div>
         <div class="col-lg-6">
           <div class="form-content">
-            <form method="get" id="myForm">
+            <form method="POST" id="myForm" action="<?php echo $_SERVER['PHP_SELF'] ?>">
               <h2>Rellena el Formulario</h2>
               <p>Te ayudamos a organizar tu viaje inolvidable <br>
                 en Egipto a tu medida</p>
               <div class="form-item">
-                <input type="text" name="username" id="username" placeholder="Nombre" />
+                <input type="text" name="username" id="username" placeholder="Nombre" value="<?php if(isset($user)) {echo $user;} ?>" />
+                <div class="alert alert-danger custom-alert">
+                  Nombre is Required
+                </div>
               </div>
               <div class="form-item">
-                <input type="email" name="email" id="email" placeholder="Correo electrónico" />
+                <input type="email" name="email" id="email" placeholder="Correo electrónico"value="<?php if(isset($email)) {echo $email;} ?>" />
+                <div class="alert alert-danger custom-alert">
+                  Correo electronico 
+                </div>
               </div>
               <div class="form-item">
-                <input type="number" name="phone" id="phone" placeholder="Teléfono" />
+                <input type="number" name="phone" id="phone" placeholder="Teléfono" value="<?php if(isset($phone)) {echo $phone;} ?>"/>
+                <div class="alert alert-danger custom-alert">
+                  Teléfono es requerido
+                </div>
               </div>
               <div class="form-item">
-                <input type="text" name="nationality" id="nationality" placeholder="Nacionalidad" />
+                <input type="text" name="nationality" id="nationality" placeholder="Nacionalidad" value="<?php if(isset($nationality)) {echo $nationality;} ?>"/>
+                <div class="alert alert-danger custom-alert">
+                  Nacionalidad es requerido
+                </div>
               </div>
               <div class="input-group date form-item" id="sandbox-container">
-                <input type="text" class="form-control" name="start" placeholder="Fecha de llegada">
+                <input type="text" class="form-control" name="start" id="start" placeholder="Fecha de llegada" value="<?php if(isset($startDuration)) {echo $startDuration;} ?>">
                 <span>
                   <img src="img/8.svg" alt="">
                 </span>
+                <div class="alert alert-danger custom-alert">
+                  Fecha de llegada es requerido
+                </div>
               </div>
               <div class="input-group date form-item" id="sandbox-container">
-                <input type="text" class="form-control" name="end" placeholder="Fecha de salida">
+                <input type="text" class="form-control" name="end" id="end" placeholder="Fecha de salida" value="<?php if(isset($endDuration)) {echo $endDuration;} ?>">
                 <span>
                   <img src="img/8.svg" alt="">
                 </span>
+                <div class="alert alert-danger custom-alert">
+                  Fecha de salida es requerido
+                </div>
               </div>
               <div class="form-item form-counter">
                 <div class="adults">
@@ -152,10 +199,10 @@
 
               <div class="form-item">
                 <textarea name="message" id="message" cols="30" rows="5"
-                  placeholder="Comentario (Escríbenos si quieres algo especial)"></textarea>
+                  placeholder="Comentario (Escríbenos si quieres algo especial)" value="<?php if(isset($user)) {echo $user;} ?>"></textarea>
               </div>
               <div class="form-submit">
-                <input type="submit" value="¡Planea Tu Viaje!" />
+                <input type="submit" id="submitBtn" value="¡Planea Tu Viaje!" />
               </div>
               <h6>recibirá una llamada o correo electrónico dentro de las 24 horas</h6>
             </form>
