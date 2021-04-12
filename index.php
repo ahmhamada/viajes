@@ -1,32 +1,3 @@
-<?php 
-
-  //check if user coming from a request
-  if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $user = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $phone =  filter_var($_POST['phone'], FILTER_SANITIZE_NUMBER_INT);
-    $nationality = filter_var($_POST['nationality'], FILTER_SANITIZE_STRING);
-    $startDuration = $_POST['start'];
-    $endDuration = $_POST['end'];
-    $message = $_POST['message'];
-
-    $formErrors = array();
-
-    $headers = 'Form: ' . $email . '\r\n';
-    $myEmail = 'ahmedhamada_fci@yahoo.com';
-    $subject = 'Contact Form';
-
-    if(empty($formErrors)) {
-      mail($myEmail,$subject,$msg,$headers)
-    }
-
-
-  }
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Document</title>
+  <title>Viajes</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
   </style>
@@ -132,12 +103,12 @@
         </div>
         <div class="col-lg-6">
           <div class="form-content">
-            <form method="POST" id="myForm" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+            <form method="POST" id="myForm" action="sendEmail.php">
               <h2>Rellena el Formulario</h2>
               <p>Te ayudamos a organizar tu viaje inolvidable <br>
                 en Egipto a tu medida</p>
               <div class="form-item">
-                <input type="text" name="username" id="username" placeholder="Nombre" value="<?php if(isset($user)) {echo $user;} ?>" />
+                <input type="text" name="username" id="username" autocom placeholder="Nombre" value="<?php if(isset($user)) {echo $user;} ?>" />
                 <div class="alert alert-danger custom-alert">
                   Nombre is Required
                 </div>
@@ -161,7 +132,7 @@
                 </div>
               </div>
               <div class="input-group date form-item" id="sandbox-container">
-                <input type="text" class="form-control" name="start" id="start" placeholder="Fecha de llegada" value="<?php if(isset($startDuration)) {echo $startDuration;} ?>">
+                <input type="text" class="form-control" name="start" id="start" autocomplete="off" placeholder="Fecha de llegada" value="<?php if(isset($startDuration)) {echo $startDuration;} ?>">
                 <span>
                   <img src="img/8.svg" alt="">
                 </span>
@@ -170,7 +141,7 @@
                 </div>
               </div>
               <div class="input-group date form-item" id="sandbox-container">
-                <input type="text" class="form-control" name="end" id="end" placeholder="Fecha de salida" value="<?php if(isset($endDuration)) {echo $endDuration;} ?>">
+                <input type="text" class="form-control" autocomplete="off" name="end" id="end" placeholder="Fecha de salida" value="<?php if(isset($endDuration)) {echo $endDuration;} ?>">
                 <span>
                   <img src="img/8.svg" alt="">
                 </span>
@@ -183,7 +154,7 @@
                   <span class="title">Adultos</span>
                   <div>
                   <span id="adultsMinus"> - </span>
-                  <span id="adultsValue"> 0 </span>
+                  <input type="number" name="adultsValue" id="adultsValue" value="0" readonly/>
                   <span id="adultsPlus"> + </span>
                 </div>
                 </div>
@@ -191,7 +162,7 @@
                   <span class="title">Niños</span>
                   <div>
                     <span id="kidsMinus"> - </span>
-                    <span id="kidsValue"> 0 </span>
+                    <input type="number" name="kidsValue" id="kidsValue" value="0" readonly/>
                     <span id="kidsPlus"> + </span>
                   </div>
                 </div>

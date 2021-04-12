@@ -7,41 +7,59 @@ $(function () {
       todayHighlight: true
     });
 
-    var values = {};
     $('#myForm').submit(function (e) {
       if(checkErrors()) {
         e.preventDefault()
         $('#username, #email, #phone, #nationality').blur()
-      }
-      // console.log($('myForm'))
-      // $('input.timepicker').timepicker();
-      // $("#getdate").on('click', function () {
-      //   $("#time").text($("#timepicker").val())
-      // })
+      } 
     });
 
-    var adultsValue = parseInt($('#adultsValue').text());
-    var kidsValue = parseInt($('#kidsValue').text());
+
+    var start = new Date();
+    // set end date to max one year period:
+    var end = new Date(new Date().setYear(start.getFullYear()+1));
+
+    $('#start').datepicker({
+      startDate : start,
+      endDate   : end
+  // update "toDate" defaults whenever "fromDate" changes
+  }).on('changeDate', function(){
+      // set the "toDate" start to not be later than "fromDate" ends:
+      $('#end').datepicker('setStartDate', new Date($(this).val()));
+  }); 
+  
+  $('#end').datepicker({
+      startDate : start,
+      endDate   : end
+  // update "fromDate" defaults whenever "toDate" changes
+  }).on('changeDate', function(){
+      // set the "fromDate" end to not be later than "toDate" starts:
+      $('#start').datepicker('setEndDate', new Date($(this).val()));
+  });
+  
+
+    var adultsValue = parseInt($('#adultsValue').val());
+    var kidsValue = parseInt($('#kidsValue').val());
     $('#adultsMinus').click(function () {
       if (adultsValue == 0) return;
       adultsValue--;
-      $('#adultsValue').text(adultsValue);
+      $('#adultsValue').val(adultsValue);
     })
 
     $('#adultsPlus').click(function () {
       adultsValue++;
-      $('#adultsValue').text(adultsValue);
+      $('#adultsValue').val(adultsValue);
     })
 
     $('#kidsMinus').click(function () {
       if (kidsValue == 0) return;
       kidsValue--;
-      $('#kidsValue').text(kidsValue);
+      $('#kidsValue').val(kidsValue);
     })
 
     $('#kidsPlus').click(function () {
       kidsValue++;
-      $('#kidsValue').text(kidsValue);
+      $('#kidsValue').val(kidsValue);
     })
 
 

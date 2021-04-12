@@ -210,6 +210,13 @@ body{
   padding: 12px;
   outline: 0;
 }
+.form-wrapper .form-content .form-item input:read-only{
+  border: 0;
+  padding: unset;
+  width: 20px;
+  text-align: center;
+  color: #58bfe9;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -289,6 +296,12 @@ input[type=number] {
 .form-counter .adults #kidsValue{
   display: inline-block;
   margin: 0 5px;
+}
+
+.form-counter .adults div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-counter .adults .title{
@@ -475,7 +488,7 @@ input[type=number] {
   margin-top: 16px;
 }
 
-@media only screen and (min-width: 300px) and   (max-width: 768px) {
+@media only screen and (min-width: 300px) and (max-width: 768px) {
   .recommendations h2{
     font-size: 26px;
     text-align: center;
@@ -496,3 +509,69 @@ input[type=number] {
   margin-bottom: 0;
 }
 /* End copyright */
+
+/* Start Thank You */
+.thank-you{
+  height: 100vh;
+}
+
+.thank-you .image-wrapper{
+  background-image: url('../img/3.png');
+  background-size: cover;
+  height: 45vh;
+  background-position: 50% 75%;
+  overflow: hidden;
+}
+
+.thank-you .content-wrapper {
+  text-align: center;
+}
+
+.thank-you .content-wrapper h2{
+  font-family: 'Playball', cursive;
+  font-size: 106px;
+  color: #58bfe9;
+  margin: 10px;
+  font-weight: 400;
+}
+.thank-you .content-wrapper p{
+  color: #686464;
+}
+
+.thank-you .content-wrapper .back-to-home{
+  background-color: #58bfe9;
+  color: #FFF;
+  text-decoration: none;
+  padding: 18px 86.8px;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+
+@media only screen and (min-width: 1024px) {
+  .thank-you .content-wrapper {
+    padding: 10px 245px;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .thank-you .content-wrapper {
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px 20px 20px;
+  }
+  .thank-you .content-wrapper h2 {
+    font-size: 64px;
+  }
+  .thank-you .content-wrapper .back-to-home{
+    padding: 18px 56.8px;
+    font-size: 16px;
+    margin-top: 4px;
+  }
+
+}
