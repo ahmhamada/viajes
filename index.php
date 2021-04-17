@@ -48,8 +48,7 @@
               Viajes Egipto
             </h2>
             <p>
-              es apoyada por los mejores Hoteles, Cruceros y Transportes. Arreglaremos viajes personalizados y tours por
-              día según tus intereses y preguntas ¡Te sorprenderás!
+            Viajes Egipto agencia especializada en viajes con mejor servicio. Sabemos cómo hacer que tu viaje sea lo más seguro, cómodo y memorable posible al mejor precio
             </p>
           </div>
           <div class="carousel-item">
@@ -57,8 +56,7 @@
               Viajes Egipto
             </h2>
             <p>
-              es apoyada por los mejores Hoteles, Cruceros y Transportes. Arreglaremos viajes personalizados y tours por
-              día según tus intereses y preguntas ¡Te sorprenderás!
+            Viajes Egipto es apoyada por los mejores Hoteles, Cruceros y Transportes. Arreglaremos viajes personalizados y tours por día según tus intereses y preguntas ¡Te sorprenderás!
             </p>
           </div>
           <div class="carousel-item">
@@ -66,8 +64,7 @@
               Viajes Egipto
             </h2>
             <p>
-              es apoyada por los mejores Hoteles, Cruceros y Transportes. Arreglaremos viajes personalizados y tours por
-              día según tus intereses y preguntas ¡Te sorprenderás!
+            Viajes Egipto tenemos un sistema fácil, rápido y gratuito. Con solamente el envío de tu solicitud, conectamos directamente para dar el servicio completo. La calidad es nuestra mayor prioridad.
             </p>
           </div>
         </div>
@@ -103,6 +100,8 @@
         </div>
         <div class="col-lg-6">
           <div class="form-content">
+          <h4 class="sent-notification"><?php if (isset($success)) {echo $success;} ?></h4>
+          <h4 class="sent-notification"><?php if (isset($failed)) {echo $failed;} ?></h4>
             <form method="POST" id="myForm" action="sendEmail.php">
               <h2>Rellena el Formulario</h2>
               <p>Te ayudamos a organizar tu viaje inolvidable <br>
@@ -132,7 +131,7 @@
                 </div>
               </div>
               <div class="input-group date form-item" id="sandbox-container">
-                <input type="text" class="form-control" name="start" id="start" autocomplete="off" placeholder="Fecha de llegada" value="<?php if(isset($startDuration)) {echo $startDuration;} ?>">
+                <input type="text" class="form-control" name="start" required id="start" autocomplete="off" placeholder="Fecha de llegada" value="<?php if(isset($startDuration)) {echo $startDuration;} ?>">
                 <span>
                   <img src="img/8.svg" alt="">
                 </span>
@@ -141,7 +140,7 @@
                 </div>
               </div>
               <div class="input-group date form-item" id="sandbox-container">
-                <input type="text" class="form-control" autocomplete="off" name="end" id="end" placeholder="Fecha de salida" value="<?php if(isset($endDuration)) {echo $endDuration;} ?>">
+                <input type="text" class="form-control" required autocomplete="off" name="end" id="end" placeholder="Fecha de salida" value="<?php if(isset($endDuration)) {echo $endDuration;} ?>">
                 <span>
                   <img src="img/8.svg" alt="">
                 </span>

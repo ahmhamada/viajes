@@ -29,18 +29,18 @@
 
     // smtp settings
 
-    $mail->isSMTP();
+    // $mail->isSMTP();
     $mail->Host = "smtp.gmail.com";
     $mail->SMTPAuth = true;
-    $mail->Port = '465';
-    $mail->SMTPSecure = 'ssl';
-    $mail->Username = "ahmedhamadafci@gmail.com";
-    $mail->Password = "ahmed7777hamada";
+    $mail->Port = '587';
+    $mail->SMTPSecure = 'tls';
+    $mail->Username = ""; // email
+    $mail->Password = ""; //password
     
     // mail settings
     $mail->isHTML(true);
     $mail->setFrom($email, $user);
-    $mail->addAddress("ahmedhamada_fci@yahoo.com");
+    $mail->addAddress(""); //email that we send data to it
     $mail->Subject = $subject;
     $mail->Body = "Email : $email <br> name: $user <br> Phone: $phone <br> Nationality: $nationality <br> Start Duration: $startDuration <br> End Duration: $endDuration <br> Adults: $adults <br> Kids: $kids <br> Message: $message";
 
@@ -48,7 +48,7 @@
         $success = '<div class="alert alert-success custom-alert">We have Recieved Your Message </div>';
         header("Location: thank-you.html");
     } else {
-        echo 'error';
+        echo "Mailer Error: " . $mail->ErrorInfo;
     }
 
 ?>
